@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Akash Vishwakarma | Digital Artist</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+
+<style>
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+html { scroll-behavior:smooth; }
+
+body {
+    font-family:'Segoe UI', sans-serif;
+    background:#0b1220;
+    color:#e5e7eb;
+    line-height:1.6;
+}
+
+/* HEADER */
+
+header {
+    padding:25px 10%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:rgba(17,24,39,0.6);
+    backdrop-filter:blur(12px);
+    position:sticky;
+    top:0;
+    z-index:1000;
+    border-bottom:1px solid rgba(255,255,255,0.05);
+}
+
+header strong {
+    font-size:20px;
+    background:linear-gradient(90deg,#22d3ee,#a855f7);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+nav a {
+    margin-left:25px;
+    text-decoration:none;
+    color:#9ca3af;
+    transition:0.3s;
+}
+
+nav a:hover { color:#d183f6; }
+
+/* HERO */
+
+#home {
+    position:relative;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    overflow:hidden;
+}
+
+.hero-content {
+    position:relative;
+    z-index:2;
+    animation:fadeIn 1.2s ease forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity:0; transform:translateY(20px); }
+    to { opacity:1; transform:translateY(0); }
+}
+
+#home h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size:80px;
+    font-weight:normal;
+    background:linear-gradient(90deg,#22d3ee,#a855f7);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    letter-spacing:2px;
+}
+
+.tagline {
+    font-size:20px;
+    color:#9ca3af;
+    margin-top:15px;
+}
+
+/* CRYSTAL BACKGROUND */
+
+.crystal-bg {
+    position:absolute;
+    inset:0;
+    overflow:hidden;
+    z-index:0;
+}
+
+.crystal {
+    position:absolute;
+    width:350px;
+    height:350px;
+    background:linear-gradient(135deg,#22d3ee,#a855f7);
+    clip-path:polygon(50% 0%, 80% 20%, 100% 50%, 75% 100%, 25% 100%, 0% 50%, 20% 20%);
+    opacity:0.25;
+    filter:blur(30px);
+    animation:rotateFloat 25s infinite linear;
+}
+
+.crystal1 { top:-100px; left:-100px; }
+.crystal2 { bottom:-120px; right:-120px; animation-duration:35s; }
+.crystal3 { top:40%; left:45%; animation-duration:45s; }
+
+@keyframes rotateFloat {
+    0% { transform:rotate(0deg) translateY(0px); }
+    50% { transform:rotate(180deg) translateY(-40px); }
+    100% { transform:rotate(360deg) translateY(0px); }
+}
+
+/* SECTIONS */
+
+section {
+    padding:120px 10%;
+    background:#111827;
+}
+
+section:nth-of-type(even) {
+    background:#0b1220;
+}
+
+h2 {
+    font-size:34px;
+    margin-bottom:40px;
+    border-left:4px solid #a855f7;
+    padding-left:15px;
+}
+
+/* PORTFOLIO */
+
+.portfolio-grid {
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(280px,1fr));
+    gap:25px;
+}
+
+.art-card {
+    background:#1f2937;
+    padding:15px;
+    border-radius:12px;
+    cursor:pointer;
+    transition:0.3s ease;
+    border:1px solid rgba(255,255,255,0.05);
+}
+
+.art-card:hover {
+    transform:translateY(-6px);
+    box-shadow:0 0 30px rgba(168,85,247,0.25);
+}
+
+.art-card img {
+    width:100%;
+    border-radius:10px;
+    transition:0.5s ease;
+}
+
+.art-card:hover img { transform:scale(1.05); }
+
+.art-info { margin-top:10px; color:#9ca3af; }
+
+.art-info strong {
+    display:block;
+    font-size:18px;
+    margin-bottom:4px;
+    color:#ffffff;
+}
+
+/* CONTACT */
+
+.contact-details { margin-top:20px; }
+
+.contact-details p {
+    margin-bottom:12px;
+    color:#9ca3af;
+}
+
+.contact-details a {
+    color:#22d3ee;
+    text-decoration:none;
+}
+
+.social-links {
+    margin-top:25px;
+    display:flex;
+    gap:20px;
+}
+
+.social-links a {
+    padding:10px 18px;
+    border:1px solid rgba(255,255,255,0.1);
+    border-radius:30px;
+    text-decoration:none;
+    color:#22d3ee;
+    transition:0.3s ease;
+}
+
+.social-links a:hover {
+    background:linear-gradient(90deg,#22d3ee,#a855f7);
+    color:white;
+    border-color:transparent;
+}
+
+/* LIGHTBOX */
+
+#lightbox {
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.95);
+    display:none;
+    justify-content:center;
+    align-items:center;
+    z-index:2000;
+}
+
+#lightbox img {
+    max-width:90%;
+    max-height:90%;
+    border-radius:12px;
+}
+
+/* FOOTER */
+
+footer {
+    padding:40px 10%;
+    text-align:center;
+    color:#6b7280;
+    background:#0b1220;
+    border-top:1px solid rgba(255,255,255,0.05);
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+<strong>Akash Vishwakarma</strong>
+<nav>
+<a href="#home">Home</a>
+<a href="#about">About</a>
+<a href="#portfolio">Portfolio</a>
+<a href="#contact">Contact</a>
+</nav>
+</header>
+
+<section id="home">
+    <div class="crystal-bg">
+        <div class="crystal crystal1"></div>
+        <div class="crystal crystal2"></div>
+        <div class="crystal crystal3"></div>
+    </div>
+
+    <div class="hero-content">
+        <h1>Akash Vishwakarma</h1>
+        <p class="tagline">Exploring emotion through light, texture, and spontaneous form.</p>
+    </div>
+</section>
+
+<section id="about">
+<h2>About</h2>
+<p>
+I am a beginner digital artist who enjoys exploring different styles and forms of art.
+Most of my work is freestyle, experimenting with light, color, and ideas while continuously learning and improving.
+</p>
+</section>
+
+<section id="portfolio">
+<h2>Portfolio</h2>
+<div class="portfolio-grid" id="portfolioGrid"></div>
+</section>
+
+<section id="contact">
+<h2>Contact</h2>
+
+<p>If you'd like to collaborate or connect, feel free to reach out.</p>
+
+<div class="contact-details">
+    <p><strong>Email:</strong> 
+        <a href="mailto:akashvishwa20@gmail.com">akashvishwa20@gmail.com</a>
+    </p>
+    <p><strong>Phone:</strong> 
+        <a href="tel:+919098036964">+91 9098036964</a>
+    </p>
+</div>
+
+<div class="social-links">
+    <a href="https://www.linkedin.com/in/akash-vish" target="_blank">LinkedIn</a>
+    <a href="https://www.instagram.com/a_vi_205" target="_blank">Instagram</a>
+</div>
+
+</section>
+
+<footer>
+© 2026 Akash Vishwakarma. All rights reserved.
+</footer>
+
+<div id="lightbox" onclick="closeLightbox()">
+<img src="" alt="Full View">
+</div>
+
+<script>
+
+
+const artworks = [
+    { image:"artwork/bicycle.png", title:"Bicycle", year:"2026", type:"Digital Art" },
+    { image:"artwork/couple.png", title:"Couple", year:"2026", type:"Illustration" },
+    { image:"artwork/Family.png", title:"Family", year:"2026", type:"Concept Art" },
+    { image:"artwork/manSittingInRain.png", title:"Rain", year:"2026", type:"Concept Art" },
+    { image:"artwork/manStanding.png", title:"Man", year:"2026", type:"Concept Art" },
+    { image:"artwork/moonAndMan.png", title:"Moon Story", year:"2026", type:"Concept Art" },
+    { image:"artwork/auto.png", title:"Bicycle", year:"2026", type:"Digital Art" },
+    { image:"artwork/boxer.png", title:"Couple", year:"2026", type:"Illustration" },
+    { image:"artwork/cattles.png", title:"Family", year:"2026", type:"Concept Art" },
+    { image:"artwork/frame.png", title:"Rain", year:"2026", type:"Concept Art" },
+    { image:"artwork/oldMan.png", title:"Man", year:"2026", type:"Concept Art" },
+    { image:"artwork/utensils.png", title:"Moon Story", year:"2026", type:"Concept Art" },
+    { image:"artwork/shadow.png", title:"Moon Story", year:"2026", type:"Concept Art" },
+    { image:"artwork/redFrame.png", title:"Moon Story", year:"2026", type:"Concept Art" },
+    { image:"artwork/manAndDog.png", title:"Moon Story", year:"2026", type:"Concept Art" }
+
+
+];
+
+const grid = document.getElementById("portfolioGrid");
+
+artworks.forEach(art => {
+    const card = document.createElement("div");
+    card.className = "art-card";
+    card.onclick = () => openLightbox(art.image);
+
+    card.innerHTML = `
+        <img src="${art.image}" alt="${art.title}">
+        <div class="art-info">
+            <strong>${art.title}</strong>
+            <p>${art.year} • ${art.type}</p>
+        </div>
+    `;
+
+    grid.appendChild(card);
+});
+
+function openLightbox(src) {
+    const lightbox = document.getElementById("lightbox");
+    lightbox.style.display = "flex";
+    lightbox.querySelector("img").src = src;
+}
+
+function closeLightbox() {
+    document.getElementById("lightbox").style.display = "none";
+}
+
+</script>
+
+</body>
+</html>
